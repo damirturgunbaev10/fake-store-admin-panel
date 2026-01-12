@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #333;
+    color: yellow;
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form__login{
+    width: 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    background-color: #171717;
+    border-radius: 10px;
+}
+
+.form__title{
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 38px;
+    font-weight: bold;
+}
+
+.form__input{
+    margin: 10px 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #333;
+}
+
+::placeholder{
+    color: rgb(130, 130, 58);
+}
+
+.form__button{
+    margin: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: yellow;
+    color: #333;
+    cursor: pointer;
+}

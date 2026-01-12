@@ -1,0 +1,255 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: black;
+  line-height: 1.6;
+}
+
+.layout {
+  margin: auto;
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 15%;
+  background-color: gold;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.logo {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.sidebar__ul {
+  margin-top: 30px;
+  padding-left: 10px;
+  list-style: none;
+}
+
+.sidebar__li {
+  width: 150px;
+  height: 50px;
+  display: inline-block;
+  font-weight: 10em;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: bold;
+  transition: all 0.2 s ease ;
+}
+
+.sidebar__li:hover {
+  background-color: orange;
+  cursor: pointer;
+}
+
+.sidebar__li:active {
+  background-color: rgb(255, 119, 0);
+  color: white;
+}
+
+.siderbar__li:focus {
+  background-color: orange;
+}
+
+.logout__btn {
+  margin-top: 300px;
+  background-color: red;
+  color: white;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.logout__btn:hover {
+  background-color: rgb(183, 17, 17);
+  transform: scale(1.05);
+}
+
+.dashboard {
+  width: 85%;
+  background-color: black;
+}
+
+.dashboard__header {
+  width: 95%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.dashboard__title {
+  color: white;
+  font-size: 2em;
+}
+
+.add__product__btn {
+  width: 130px;
+  height: 50px;
+  background-color: gold;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add__product__btn:hover {
+  background-color: orange;
+  transform: scale(1.1);
+}
+
+.add__product__btn:active {
+  background-color: red;
+}
+
+.table__container {
+  width: 95%;
+  height: auto;
+  margin: auto;
+  padding: 20px 0;
+  border-radius: 10px;
+}
+
+table {
+  padding: 20px 40px;
+  border-radius: 10px;
+  width: 100%;
+  color: white;
+  border-collapse: collapse;
+}
+
+.table__row1 {
+  width: 100%;
+  background-color: rgb(64, 63, 63);
+  height: 50px;
+  border-radius: 10px;
+}
+
+th {
+  text-align: left;
+} 
+
+title {
+  padding-left: 10px;
+}
+
+td {
+  padding: 10px 0;
+  height: 40px;
+  border-bottom: 1px solid gray;
+}
+
+.id {
+  width: 30px;
+}
+
+.price {
+  width: 100px;
+}
+
+.actions {
+  width: 150px;
+}
+
+.edit {
+  width: 60px;
+  height: 25px;
+}
+
+.delete {
+  width: 70px;
+  height: 25px;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-box {
+  background: #fff;
+  color: #000;
+  padding: 20px;
+  width: 300px;
+  border-radius: 12px;
+}
+
+.modal-box input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.edit {
+  width: 60px;
+  height: 30px;
+  border: none;
+  background-color: gold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.edit:hover {
+  transform: scale(1.05);
+  background-color: orange;
+}
+
+.delete {
+  width: 70px;
+  height: 30px;
+  border: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.delete:hover {
+  background-color: rgb(183, 17, 17);
+  transform: scale(1.05);
+}
+
+#saveProduct {
+  width: 60px;
+  height: 30px;
+  border: none;
+  background-color: gold;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#close {
+  width: 60px;
+  height: 30px;
+  margin-left: 10px;
+  border: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
