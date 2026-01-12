@@ -1,0 +1,1 @@
+# fake-store-admin-panel
