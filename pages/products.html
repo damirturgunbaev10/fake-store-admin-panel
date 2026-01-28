@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/products.css" />
+    <title>Admin dashboard</title>
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="sidebar">
+        <h2 class="logo">Admin</h2>
+
+        <ul class="sidebar__ul">
+          <li class="sidebar__li">Products</li>
+          <li class="sidebar__li users__link"><a href="/pages/users.html">Users</a></li>
+          <li class="sidebar__li"><a href="/pages/carts.html">Carts</a></li>
+        </ul>
+
+        <button class="logout__btn">Logout</button>
+      </aside>
+
+      <main class="dashboard">
+        <header class="dashboard__header">
+          <h1 class="dashboard__title">Products</h1>
+
+          <button class="add__product__btn">Add Product</button>
+        </header>
+
+        <div class="table__container">
+          <table class="table">
+            <thead>
+              <tr class="table__row1">
+                <th class="id">ID</th>
+                <th class="title">Title</th>
+                <th class="price">Price</th>
+                <th class="category">Category</th>
+                <th class="description">Dsecription</th>
+                <th class="actions">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="productList"></tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+
+    <div class="modal hidden" id="modal">
+      <div class="modal-box">
+        <h3 id="modalTitle">Add Product</h3>
+        <input type="text" id="title" placeholder="Title" />
+        <input type="number" id="price" placeholder="Price" />
+        <input type="text" id="description" placeholder="Description" />
+        <input type="text" id="category" placeholder="Category" />
+        <button id="saveProduct">Save</button>
+        <button id="close">Cancel</button>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/utils/products.js"></script>
+  </body>
+</html>

@@ -1,8 +1,9 @@
-const API = "https://fakestoreapi.com/products";
+const API = "https://fakestoreapi.com/users";
 const productList = document.getElementById("productList");
 const elLogout = document.querySelector(".logout__btn");
-const titleInput = document.getElementById("title");
-const priceInput = document.getElementById("price");
+const usernameInput = document.getElementById("username");
+const emailInput = document.getElementById("email");
+const passowordInput = document.getElementById("password");
 const modal = document.getElementById("modal");
 
 elLogout.addEventListener("click", () => {
@@ -15,14 +16,15 @@ function fetchProducts() {
   axios.get(API).then((res) => {
     const data = res.data;
     productList.innerHTML = "";
-    data.slice(0, 15).forEach((p) => {
+    data.slice(0, 10).forEach((p) => {
       productList.innerHTML += `
           <tr>
             <td class=id>${p.id}</td>
-            <td class=title>${p.title}</td>
-            <td class=price>$${p.price}</td>
+            <td>${p.username}</td>
+            <td>$${p.email}</td>
+            <td>$${p.password}</td>
             <td class="actions">
-              <button class="edit" onclick="editProduct(${p.id}, '${p.title}', ${p.price})">Edit</button>
+              <button class="edit" onclick="editProduct('${p.id}' , '${p.username}' , '${p.email}' ,  '${p.passoword}')">Edit</button>
               <button class="delete" onclick="deleteProduct(${p.id})">Delete</button>
             </td>
           </tr>
@@ -33,17 +35,19 @@ function fetchProducts() {
 
 fetchProducts();
 
-document.querySelector(".add__product__btn").onclick = () => {
+document.querySelector(".add__user__btn").onclick = () => {
   modal.classList.remove("hidden");
   editId = null;
-  titleInput.value = "";
-  priceInput.value = "";
+  usernameInput.value = "";
+  emailInput.value = "";
+  passowordInput.value = "";
 };
 
-document.getElementById("saveProduct").onclick = () => {
+document.querySelector("#saveProduct").onclick = () => {
   const product = {
-    title: titleInput.value,
-    price: priceInput.value,
+    username: usernameInput.value,
+    email: emailInput.value,
+    password: passowordInput.value,
   };
 
   if (editId) {
@@ -55,10 +59,11 @@ document.getElementById("saveProduct").onclick = () => {
   modal.classList.add("hidden");
 };
 
-function editProduct(id, title, price) {
+function editProduct(id, username, email, password) {
   modal.classList.remove("hidden");
-  titleInput.value = title;
-  priceInput.value = price;
+  usernameInput.value = username;
+  emailInput.value = email;
+  passowordInput.value = password;
   editId = id;
 }
 

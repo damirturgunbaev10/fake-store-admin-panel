@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+a{
+  text-decoration: none;
+}
+
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: black;
@@ -47,6 +51,10 @@ body {
   padding: 10px;
   font-weight: bold;
   transition: all 0.2 s ease ;
+}
+
+.sidebar a{
+  color: black;
 }
 
 .sidebar__li:hover {
@@ -159,12 +167,24 @@ td {
   width: 30px;
 }
 
+.title{
+  width: 500px;
+}
+
 .price {
   width: 100px;
 }
 
-.actions {
+.category{
   width: 150px;
+}
+
+.description{
+  width: 200px; 
+}
+
+.actions {
+  width: 130px;
 }
 
 .edit {
@@ -191,17 +211,28 @@ td {
 }
 
 .modal-box {
-  background: #fff;
+  background: #403F3F;
   color: #000;
   padding: 20px;
   width: 300px;
   border-radius: 12px;
 }
 
+#modalTitle{
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  color: white;
+}
+
 .modal-box input {
   width: 100%;
   margin-bottom: 10px;
   padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #333;
+  color: white;
 }
 
 .edit {
@@ -234,6 +265,7 @@ td {
 }
 
 #saveProduct {
+  margin-top: 10px      ;
   width: 60px;
   height: 30px;
   border: none;
@@ -241,6 +273,12 @@ td {
   color: white;
   cursor: pointer;
   border-radius: 5px;
+  transition: all 0.3s ease;
+} 
+
+#saveProduct:hover {
+  background-color: orange;
+  transform: scale(1.05);
 }
 
 #close {
@@ -252,4 +290,10 @@ td {
   color: white;
   cursor: pointer;
   border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+#close:hover {
+  background-color: rgb(183, 17, 17);
+  transform: scale(1.05);
 }

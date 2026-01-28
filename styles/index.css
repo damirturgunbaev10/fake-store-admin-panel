@@ -13,6 +13,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: url(/assets/Login-Screen-Background-Wood-5.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .form__login{
