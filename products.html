@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/products.css" />
-    <link rel="stylesheet" href="/styles/users.css">
+    <link rel="stylesheet" href="/products.css" />
     <title>Admin dashboard</title>
   </head>
   <body>
@@ -13,9 +12,9 @@
         <h2 class="logo">Admin</h2>
 
         <ul class="sidebar__ul">
-          <li class="sidebar__li products__link"><a href="/pages/products.html">Products</a></li>
-          <li class="sidebar__li">Users</li>
-          <li class="sidebar__li carts__link"><a href="/pages/carts.html">Carts</a></li>
+          <li class="sidebar__li">Products</li>
+          <li class="sidebar__li users__link"><a href="/users.html">Users</a></li>
+          <li class="sidebar__li"><a href="/carts.html">Carts</a></li>
         </ul>
 
         <button class="logout__btn">Logout</button>
@@ -23,9 +22,9 @@
 
       <main class="dashboard">
         <header class="dashboard__header">
-          <h1 class="dashboard__title">Users</h1>
+          <h1 class="dashboard__title">Products</h1>
 
-          <button class="add__user__btn">Add User</button>
+          <button class="add__product__btn">Add Product</button>
         </header>
 
         <div class="table__container">
@@ -33,9 +32,10 @@
             <thead>
               <tr class="table__row1">
                 <th class="id">ID</th>
-                <th class="title">Username</th>
-                <th class="price">Email</th>
-                <th class="category">Password</th>
+                <th class="title">Title</th>
+                <th class="price">Price</th>
+                <th class="category">Category</th>
+                <th class="description">Dsecription</th>
                 <th class="actions">Actions</th>
               </tr>
             </thead>
@@ -47,17 +47,17 @@
 
     <div class="modal hidden" id="modal">
       <div class="modal-box">
-        <h3 id="modalTitle">Add user</h3>
-        <input type="text" id="id" placeholder="Id" />
-        <input type="text" id="username" placeholder="Username" />
-        <input type="text" id="email" placeholder="Email" />
-        <input type="text" id="password" placeholder="Password" />
+        <h3 id="modalTitle">Add Product</h3>
+        <input type="text" id="title" placeholder="Title" />
+        <input type="number" id="price" placeholder="Price" />
+        <input type="text" id="description" placeholder="Description" />
+        <input type="text" id="category" placeholder="Category" />
         <button id="saveProduct">Save</button>
         <button id="close">Cancel</button>
       </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="/utils/users.js"></script>
+    <script src="/products.js"></script>
   </body>
 </html>
