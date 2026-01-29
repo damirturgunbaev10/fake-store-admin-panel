@@ -35,7 +35,7 @@ function login(url, data) {
         }).showToast();
 
         setTimeout(() => {
-          window.location.href = "/pages/products.html";
+          window.location.href = "/products.html";
         }, 2000);
       }
     })

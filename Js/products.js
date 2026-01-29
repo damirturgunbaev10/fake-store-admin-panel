@@ -16,22 +16,32 @@ elLogout.addEventListener("click", () => {
 
 function fetchProducts() {
   axios.get(API).then((res) => {
-    const data = res.data;
     productList.innerHTML = "";
-    data.slice(0, 10).forEach((p) => {
-      productList.innerHTML += `
-          <tr>
-            <td class=id>${p.id}</td>
-            <td class=title>${p.title}</td>
-            <td class=price>${p.price}</td>
-            <td class=price>${p.category}</td>
-            <td class=price>${p.description.slice(0, 20)}...</td>
-            <td class="actions">
-              <button class="edit" onclick="editProduct('${p.id}' , '${p.title}' , '${p.price}' , '${p.description}')">Edit</button>
-              <button class="delete" onclick="deleteProduct(${p.id})">Delete</button>
-            </td>
-          </tr>
-        `;
+
+    res.data.slice(0, 10).forEach((p) => {
+      const tr = document.createElement("tr");
+
+      tr.innerHTML = `
+        <td>${p.id}</td>
+        <td>${p.title}</td>
+        <td>${p.price}</td>
+        <td>${p.category}</td>
+        <td>${p.description.slice(0, 20)}...</td>
+        <td class="actions">
+          <button class="edit">Edit</button>
+          <button class="delete">Delete</button>
+        </td>
+      `;
+
+      tr.querySelector(".edit").addEventListener("click", () => {
+        editProduct(p);
+      });
+
+      tr.querySelector(".delete").addEventListener("click", () => {
+        deleteProduct(p.id);
+      });
+
+      productList.appendChild(tr);
     });
   });
 }
@@ -64,13 +74,13 @@ document.querySelector("#saveProduct").onclick = () => {
   modal.classList.add("hidden");
 };
 
-function editProduct(id, title, price, description, category) {
+function editProduct(product) {
   modal.classList.remove("hidden");
-  titleInput.value = title;
-  priceInput.value = price;
-  descriptionInput.value = description;
-  categoryInput.value = category;
-  editId = id;
+  titleInput.value = product.title;
+  priceInput.value = product.price;
+  descriptionInput.value = product.description;
+  categoryInput.value = product.category;
+  editId = product.id;
 }
 
 function deleteProduct(id) {
