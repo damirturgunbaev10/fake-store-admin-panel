@@ -1,76 +1,84 @@
 const API = "https://fakestoreapi.com/users";
 const productList = document.getElementById("productList");
-const elLogout = document.querySelector(".logout__btn");
 const usernameInput = document.getElementById("username");
 const emailInput = document.getElementById("email");
-const passowordInput = document.getElementById("password");
+const passwordInput = document.getElementById("password");
 const modal = document.getElementById("modal");
+let editId = null;
 
-elLogout.addEventListener("click", () => {
-  localStorage.removeItem("token");
-  localStorage.removeItem("usename");
-  window.location.href = "/pages/index.html";
-});
+document.querySelector(".logout__btn").onclick = () => {
+  localStorage.clear();
+  location.href = "/pages/index.html";
+};
 
-function fetchProducts() {
-  axios.get(API).then((res) => {
-    const data = res.data;
+function fetchUsers() {
+  axios.get(API).then(({ data }) => {
     productList.innerHTML = "";
-    data.slice(0, 10).forEach((p) => {
-      productList.innerHTML += `
-          <tr>
-            <td class=id>${p.id}</td>
-            <td>${p.username}</td>
-            <td>$${p.email}</td>
-            <td>$${p.password}</td>
-            <td class="actions">
-              <button class="edit" onclick="editProduct('${p.id}' , '${p.username}' , '${p.email}' ,  '${p.passoword}')">Edit</button>
-              <button class="delete" onclick="deleteProduct(${p.id})">Delete</button>
-            </td>
-          </tr>
-        `;
+
+    data.slice(0, 10).forEach((user) => {
+      const tr = document.createElement("tr");
+
+      tr.innerHTML = `
+        <td>${user.id}</td>
+        <td>${user.username}</td>
+        <td>${user.email}</td>
+        <td>${user.password}</td>
+        <td class="actions">
+          <button class="edit">Edit</button>
+          <button class="delete">Delete</button>
+        </td>
+      `;
+
+      tr.querySelector(".edit").addEventListener("click", () => editUser(user));
+
+      tr.querySelector(".delete").addEventListener("click", () =>
+        deleteUser(user.id),
+      );
+
+      productList.appendChild(tr);
     });
   });
 }
 
-fetchProducts();
+fetchUsers();
 
 document.querySelector(".add__user__btn").onclick = () => {
   modal.classList.remove("hidden");
   editId = null;
   usernameInput.value = "";
   emailInput.value = "";
-  passowordInput.value = "";
+  passwordInput.value = "";
 };
 
-document.querySelector("#saveProduct").onclick = () => {
-  const product = {
+document.getElementById("saveProduct").onclick = () => {
+  const user = {
     username: usernameInput.value,
     email: emailInput.value,
-    password: passowordInput.value,
+    password: passwordInput.value,
   };
 
-  if (editId) {
-    axios.put(`${API}/${editId}`, product).then(() => loadProducts());
-  } else {
-    axios.post(API, product).then(() => loadProducts());
-  }
+  const request = editId
+    ? axios.put(`${API}/${editId}`, user)
+    : axios.post(API, user);
 
-  modal.classList.add("hidden");
+  request.then(() => {
+    modal.classList.add("hidden");
+    fetchUsers();
+  });
 };
 
-function editProduct(id, username, email, password) {
+function editUser(user) {
   modal.classList.remove("hidden");
-  usernameInput.value = username;
-  emailInput.value = email;
-  passowordInput.value = password;
-  editId = id;
+  editId = user.id;
+  usernameInput.value = user.username;
+  emailInput.value = user.email;
+  passwordInput.value = user.password;
 }
 
-function deleteProduct(id) {
-  axios.delete(`${API}/${id}`).then(() => loadProducts());
+function deleteUser(id) {
+  axios.delete(`${API}/${id}`).then(fetchUsers);
 }
 
-document.querySelector("#close").onclick = () => {
+document.getElementById("close").onclick = () => {
   modal.classList.add("hidden");
 };

@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
@@ -50,10 +50,10 @@ body {
   border-radius: 5px;
   padding: 10px;
   font-weight: bold;
-  transition: all 0.2 s ease ;
+  transition: all 0.2 s ease;
 }
 
-.sidebar a{
+.sidebar a {
   color: black;
 }
 
@@ -151,7 +151,7 @@ table {
 
 th {
   text-align: left;
-} 
+}
 
 title {
   padding-left: 10px;
@@ -167,7 +167,7 @@ td {
   width: 30px;
 }
 
-.title{
+.title {
   width: 500px;
 }
 
@@ -175,16 +175,16 @@ td {
   width: 100px;
 }
 
-.category{
+.category {
   width: 150px;
 }
 
-.description{
-  width: 200px; 
+.description {
+  width: 200px;
 }
 
 .actions {
-  width: 130px;
+  width: 140px;
 }
 
 .edit {
@@ -211,14 +211,14 @@ td {
 }
 
 .modal-box {
-  background: #403F3F;
+  background: #403f3f;
   color: #000;
   padding: 20px;
   width: 300px;
   border-radius: 12px;
 }
 
-#modalTitle{
+#modalTitle {
   font-size: 1.5em;
   margin-bottom: 15px;
   color: white;
@@ -265,7 +265,7 @@ td {
 }
 
 #saveProduct {
-  margin-top: 10px      ;
+  margin-top: 10px;
   width: 60px;
   height: 30px;
   border: none;
@@ -274,7 +274,7 @@ td {
   cursor: pointer;
   border-radius: 5px;
   transition: all 0.3s ease;
-} 
+}
 
 #saveProduct:hover {
   background-color: orange;
