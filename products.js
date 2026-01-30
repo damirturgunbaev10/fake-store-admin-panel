@@ -11,7 +11,7 @@ const modal = document.querySelector("#modal");
 elLogout.addEventListener("click", () => {
   localStorage.removeItem("token");
   localStorage.removeItem("usename");
-  window.location.href = "/pages/index.html";
+  window.location.href = "/index.html";
 });
 
 function fetchProducts() {
